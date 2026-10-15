@@ -1,71 +1,27 @@
-# TempeHS Arduino Bootcamp
+README.md
 
-This is the folder structure and starter files for students completing the TempeHS Arduino Bootcamp.
 
-The bootcamp uses the **official [Arduino Sensor Kit](https://sensorkit.arduino.cc/)**: a Grove base shield and prewired modules that connect with Grove cables (no breadboard wiring needed for the kit modules). Your kit also includes a **Grove Line Finder** and a **Grove 3-pin Ultrasonic sensor**. The motor activities use real wiring with external power.
+Overview of project:
 
-## Getting started
+Our main goal is to design a lightweight, strong and versatile climbing prosthetic that allows Aaron to safely participate in rock climbing and bouldering. The prosthetic should provide a secure grip on different climbing holds while being comfortable and simple to use. Another goal is to make the device modular, allowing Aaron to easily change between different hook attachments depending on the type of climbing or activity. We also aim to use strong, lightweight materials so the prosthetic does not cause unnecessary fatigue during climbing.
 
-1. Click **Use this template** then **Create a new repository**
-2. Name it using the class convention: `2027CT_Arduino_Bootcamp_FirstName.Initial` (e.g. `2027CT_Arduino_Bootcamp_Ben.J`)
-3. Open your repository in a **GitHub Codespace** (the **Arduino to Codespaces Bridge** extension installs automatically)
-4. Plug in your Arduino Uno, click the bridge icon in the left navigation bar, run the server, then open the bridge
-5. Upload a sketch through the bridge and you are ready to code
+Aarons Profile:
 
-Full setup instructions are on the learning platform: **Arduino Bootcamp, Page 1: What is Mechatronics?**
+Aaron used to rock climb  as a hobby but in an incident that happened on a hike in Utah, he has sadly lost his arm when a boulder that randomly feel down from above him had crushed his arm right after he had fell through a crevasse beside the hiking trail.
 
-## The working rhythm
+High level pictorial:
 
-**Write** the code in your Codespace, **Upload** it to the Arduino, **Test** it with the sensor kit, then **Commit and Push** every working solution with a clear message and a photo of your build.
+<img width="956" height="669" alt="image" src="https://github.com/user-attachments/assets/84d0df6c-829d-4711-ac6a-e3101daa7ded" />
+This pictorial describes the first protoype design we plan on using to help Aaron find the most effective prosthetic to help him climb again.
 
-## Folder guide
+Components to be used:
 
-| Folder                      | Lesson                                        | Hardware                                      |
-| --------------------------- | --------------------------------------------- | --------------------------------------------- |
-| `01.serialMonitor`          | Serial Monitor & Program Structure            | none                                          |
-| `02.storingData`            | Variables & Data Types                        | none                                          |
-| `03.buttonsAndDecisions`    | Digital I/O + selection (if/else/switch)      | Button D4, LED D6, Line Finder D7             |
-| `04.analogueInOut`          | Analogue input + math + PWM output            | Pot A0, Sound A2, Light A3, LED D6, Buzzer D5 |
-| `05.loopsAndTime`           | Loops + delay vs millis + random              | Button D4, Buzzer D5, LED D6                  |
-| `06.servoMotor`             | Positional servo with the Servo library       | Servo D3, Pot A0                              |
-| `07.ultrasonicAndFunctions` | Ultrasonic library + structuring functions    | Ultrasonic D2, Buzzer D5, LED D6              |
-| `08.motorFundamentals`      | Direct-wire a DC motor + motor control theory | DC motor, battery pack (real wiring)          |
-| `09.I2C`                    | I2C bus, OLED display and sensors             | OLED + I2C sensors                            |
-| `10.OOP`                    | Object-Oriented Programming                   | LED D6 + built-in LED                         |
-| `11.myProjects`             | Capstone builds                               | your choice                                   |
-
-Each sketch's header comment lists the learning intention, success criteria and Grove ports for that activity. Folders also contain **optional breadboard schematics** (`Bootcamp-*.png`) showing how the same circuits are wired by hand without Grove modules, for anyone who wants to look under the hood.
-
-## Standard Grove ports
-
-![Arduino Uno pin-out for this bootcamp](pinout.png)
-
-| Module                                             | Port    |
-| -------------------------------------------------- | ------- |
-| **DO NOT USE** (TX/RX serial to your computer)     | D0 / D1 |
-| Ultrasonic (3-pin)                                 | D2      |
-| Servo                                              | D3      |
-| Button                                             | D4      |
-| Buzzer                                             | D5      |
-| LED                                                | D6      |
-| Line Finder                                        | D7      |
-| Spare (port-move experiments)                      | D8      |
-| Potentiometer                                      | A0      |
-| Spare (leave unconnected: `randomSeed` noise)      | A1      |
-| Sound sensor                                       | A2      |
-| Light sensor                                       | A3      |
-| OLED, Temp & Humidity, Air Pressure, Accelerometer | I2C     |
-
-## Libraries
-
-Install these once via the bridge web interface **Libraries** tab:
-
-| Library                | Needed from                                                        |
-| ---------------------- | ------------------------------------------------------------------ |
-| `Servo` (by Arduino)   | `06.servoMotor` onwards                                           |
-| `Arduino_SensorKit`   | `09.I2C` (OLED + kit I2C sensors; installs U8g2 automatically)    |
-
-The Ultrasonic library is bundled inside `07.ultrasonicAndFunctions` and needs no install.
+* Sensor for activating the hook
+* Hook attatchments (assorted)
+* Plastic (arm's main body)
+* elastic strap (arm attatchment)
+* Light (for in the dark climbs)
+* Internal gears and programmed parts.
 
 ## Links
 
@@ -74,21 +30,3 @@ The Ultrasonic library is bundled inside `07.ultrasonicAndFunctions` and needs n
 3. [TempeHS Arduino Boilerplate](https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate) including the school sensor, module, shield and electronic component catalogue
 
 
-
-Overview of project:
-
-Our main goal is to design a lightweight, strong and versatile climbing prosthetic that allows Aaron to safely participate in rock climbing and bouldering. The prosthetic should provide a secure grip on different climbing holds while being comfortable and simple to use. Another goal is to make the device modular, allowing Aaron to easily change between different hook attachments depending on the type of climbing or activity. We also aim to use strong, lightweight materials so the prosthetic does not cause unnecessary fatigue during climbing.
-
-Aarons Profile: Aaron used to rock climb  as a hobby but in an incident that happened on a hike in Utah, he has sadly lost his arm when a boulder that randomly feel down from above him had crushed his arm right after he had fell through a crevasse beside the hiking trail.
-
-High level pictorial;
-<img width="956" height="669" alt="image" src="https://github.com/user-attachments/assets/84d0df6c-829d-4711-ac6a-e3101daa7ded" />
-This pictorial describes the first protoype design we plan on using to help Aaron find the most effective prosthetic to help him climb again.
-
-Components to be used:
-* Sensor for activating the hook
-* Hook attatchments (assorted)
-* Plastic (arm's main body)
-* elastic strap (arm attatchment)
-* Light (for in the dark climbs)
-* Internal gears and programmed parts.
