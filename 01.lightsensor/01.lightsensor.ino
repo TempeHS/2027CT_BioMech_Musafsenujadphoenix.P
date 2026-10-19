@@ -1,70 +1,39 @@
-class Led {
-  private:
-    int pin;          // properties: data each Led remembers
-    bool isOn;
+// Define the pre-wired pins on the Arduino Sensor Kit
+const int buttonPin = 4; // Grove Button is on D4
+const int ledPin = 6;    // Grove Red LED is on D6
 
-  public:
-    Led(int ledPin) {  // constructor: runs when an object is created
-      pin = ledPin;
-      isOn = false;
-    }
-
-    void begin() {
-      pinMode(pin, OUTPUT);
-      digitalWrite(pin, LOW);
-    }
-
-    void turnOn() {    // methods: things every Led can do
-      digitalWrite(pin, HIGH);
-      isOn = true;
-    }
-
-    void turnOff() {
-      digitalWrite(pin, LOW);
-      isOn = false;
-    }
-
-    void toggle() {
-      if (isOn) {
-        turnOff();
-      } else {
-        turnOn();
-      }
-    }
-};
-
-class Button {
-  private:
-    int pin;
-  public:
-    Button(int buttonPin) {
-      pin = buttonPin;
-    }
-    void begin() {
-      pinMode(pin, INPUT);
-    }
-    bool isPressed() {
-      return digitalRead(pin) == HIGH;  // Grove button: HIGH when pressed
-    }
-};
-
-Led moduleLed(6);    // the Grove LED module on D6
-Led builtinLed(13);  // the LED soldered onto the Uno itself
-Button myButton(4);
+int ledState = LOW;         // Tracks the current state of the LED
+int buttonState = LOW;      // Tracks the current reading from the button pin
+int lastButtonState = LOW;  // Tracks the previous reading from the button pin
 
 void setup() {
-  moduleLed.begin();
-  builtinLed.begin();
-  builtinLed.turnOn();
-  myButton.begin();
+  pinMode(buttonPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+
+  // Start with the LED turned off
+  digitalWrite(ledPin, ledState);
 }
 
 void loop() {
-  if (myButton.isPressed()) {
-    moduleLed.turnOn();
-    builtinLed.turnOff();
-  } else {
-    moduleLed.turnOff();
-    builtinLed.turnOn();
+  // Read the current status of the button
+  buttonState = digitalRead(buttonPin);
+
+  // Check if the button transition changed from NOT pressed to PRESSED
+  if (buttonState == HIGH && lastButtonState == LOW) {
+    // Toggle the state variable
+    if (ledState == HIGH) {
+      ledState = LOW;
+    } else {
+      ledState = HIGH;
+    }
+
+    // Apply the new state to the LED
+    digitalWrite(ledPin, ledState);
+
+    // Small delay to handle button bounce
+    delay(50);
   }
+
+  // Save the current state for the next loop comparison
+  lastButtonState = buttonState;
 }
