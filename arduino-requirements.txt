@@ -6,6 +6,7 @@ platform arduino:avr 1.8.8
 
 <<<<<<< HEAD
 # Libraries
+library Servo 1.3.0
 library Ultrasonic 3.0.0
 =======
 >>>>>>> dae881c (Your descriptive commit message)

@@ -32,15 +32,27 @@
 
 #include <Servo.h>
 
-const int SERVO_PIN = 3;  // Grove connector to D3 (PWM capable)
-const int POT_PIN = A0;   // Grove Potentiometer on A0
+const int SERVO_PIN = 3;   // Grove servo signal on D3
+
 
 Servo myServo;
 
 void setup() {
-
+  Serial.begin(115200);
+  myServo.attach(SERVO_PIN);
+  myServo.write(90);
 }
 
 void loop() {
-
+  // Sweep 0 -> 180
+  for (int angle = 0; angle <= 180; angle++) {
+    myServo.write(angle);
+    delay(5);
+  }
+  // Sweep 180 -> 0
+  for (int angle = 180; angle >= 0; angle--) {
+    myServo.write(angle);
+    delay(5);
+  }
 }
+
