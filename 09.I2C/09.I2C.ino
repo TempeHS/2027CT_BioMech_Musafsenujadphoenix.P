@@ -43,13 +43,22 @@
     https://sensorkit.arduino.cc/
     https://www.arduino.cc/reference/en/language/functions/communication/wire/
 */
-
 #include <Wire.h>
 
 void setup() {
+  Wire.begin();
+  Serial.begin(115200);
+  Serial.println("Scanning the I2C bus...");
 
+  for (byte address = 1; address < 127; address++) {
+    Wire.beginTransmission(address);
+    if (Wire.endTransmission() == 0) {
+      Serial.print("Device found at address 0x");
+      Serial.println(address, HEX);
+    }
+  }
+  Serial.println("Scan complete.");
 }
 
 void loop() {
-
 }
