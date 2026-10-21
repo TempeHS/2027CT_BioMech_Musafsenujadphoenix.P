@@ -4,8 +4,11 @@
 # Platforms
 platform arduino:avr 1.8.8
 
+<<<<<<< HEAD
 # Libraries
 library Ultrasonic 3.0.0
+=======
+>>>>>>> dae881c (Your descriptive commit message)
 
 # Devices (learned from successful uploads)
 device 0x10c4:0xea60 arduino:avr:uno
