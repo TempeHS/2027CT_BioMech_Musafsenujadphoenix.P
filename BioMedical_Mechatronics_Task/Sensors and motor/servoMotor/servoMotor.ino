@@ -52,7 +52,8 @@ void loop() {
   // Sweep 180 -> 0
   for (int angle = 180; angle >= 0; angle--) {
     myServo.write(angle);
-    delay(5);
+    delay(10);
   }
 }
+
 
